@@ -48,11 +48,63 @@
 		"stack": "Redux"
 	},
 	{
-		"text": "store",
-		"stack": "Redux"
+		"text": "component",
+		"stack": "React"
 	},
 	{
-		"text": "reducer",
-		"stack": "Redux"
+		"text": "props",
+		"stack": "React"
+	},
+	{
+		"text": "react-render-dom",
+		"stack": "React"
+	},
+	{
+		"text": "pass down through props",
+		"stack": "React"
+	},
+	{
+		"text": "manage local state",
+		"stack": "React"
+	},
+	{
+		"text": "react forms",
+		"stack": "React"
+	},
+	{
+		"text": "react router",
+		"stack": "React"
+	},
+	{
+		"text": "query database",
+		"stack": "Sequelize"
+	},
+	{
+		"text": "SQL query",
+		"stack": "Sequelize"
+	},
+	{
+		"text": "magic methods",
+		"stack": "Sequelize"
+	},
+	{
+		"text": "association",
+		"stack": "Sequelize"
+	},
+	{
+		"text": "Model",
+		"stack": "Sequelize"
+	},
+	{
+		"text": "one to many",
+		"stack": "Sequelize"
+	},
+	{
+		"text": "many to many",
+		"stack": "Sequelize"
+	},
+	{
+		"text": "one to one",
+		"stack": "Sequelize"
 	}
 ]

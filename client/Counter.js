@@ -1,5 +1,14 @@
 import React from 'react';
+import { bounceIn } from 'react-animations';
+import styled, { keyframes } from 'styled-components';
 import axios from 'axios';
+
+const Output = styled.div`
+	animation: 2s ${keyframes`${bounceIn}`};
+	text-align: center;
+	font-size: 1.5rem;
+	margin: 0.5em 0;
+`;
 
 class Counter extends React.Component {
 	constructor(props) {
@@ -29,7 +38,14 @@ class Counter extends React.Component {
 					<input type="text" name="input" />
 					<button type="submit">Submit</button>
 				</form>
-				<h1>{this.state.result}</h1>
+				{/* some magic to get the animation to work after mounting -- doesn't work on multiple submissions though */}
+				{this.state.result === '' ? (
+					''
+				) : (
+					<Output>
+						<h1>{this.state.result}</h1>
+					</Output>
+				)}
 			</React.Fragment>
 		);
 	}

@@ -12,7 +12,7 @@ const trainingData = data.map((item) => ({
 console.log(
 	'stack category stats-->',
 	net.train(trainingData, {
-		iterations: 1000
+		iterations: 20
 	})
 );
 
