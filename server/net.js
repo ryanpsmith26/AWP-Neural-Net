@@ -19,7 +19,7 @@ const brain = require('brain.js');
 // const trainingData = createTrainingData(10);
 // console.log(trainingData);
 
-const trainingData = [ [ 4, 5, 6, 7, 8 ] ];
+const trainingData = [ [ 1, 2, 3, 4, 5 ], [ 6, 7, 8, 9, 10 ] ];
 
 const net = new brain.recurrent.LSTMTimeStep();
 

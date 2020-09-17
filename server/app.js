@@ -18,17 +18,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // GET /api/net -- TESTING
 app.get('/api/net', (req, res, next) => {
-	res.send('Hello!');
+	let result = net.run([ 4, 5, 6, 7 ]);
+	console.log(result);
+	res.json(result);
 });
 
 // PUT /api/net
 app.put('/api/net', (req, res, next) => {
 	try {
-		let result = net.run([ 4, 5, 6, 7 ]);
-		result = Math.round(result);
-		console.log('result-->', result);
-		res.status(200).send(result);
-		res.end();
+		let runData = req.body;
+		let result = Math.round(net.run(runData));
+		res.json(result);
 	} catch (error) {
 		next(error);
 	}
