@@ -1,10 +1,32 @@
 import React from 'react';
 
+import axios from 'axios';
+
 class Counter extends React.Component {
-	componentDidMount() {}
+	constructor(props) {
+		super(props);
+		this.state = {
+			result: NaN
+		};
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+	async handleSubmit(e) {
+		e.preventDefault();
+		const { data: result } = await axios.get('/api/net');
+		this.setState({ result });
+	}
 
 	render() {
-		return <h1>Machine Learning w/ Brain.js!</h1>;
+		console.log('counter state--->', this.state);
+		return (
+			<form onSubmit={this.handleSubmit}>
+				<label>Enter Sequence: </label>
+				<input name="sequence-input" />
+				<button type="submit">Submit</button>
+			</form>
+		);
 	}
 }
+
 export default Counter;
