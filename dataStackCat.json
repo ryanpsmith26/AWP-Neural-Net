@@ -1,0 +1,58 @@
+[
+	{
+		"text": "route",
+		"stack": "Express"
+	},
+	{
+		"text": "api",
+		"stack": "Express"
+	},
+	{
+		"text": "serve",
+		"stack": "Express"
+	},
+	{
+		"text": "serving up some data",
+		"stack": "Express"
+	},
+	{
+		"text": "handling a route with custom middleware",
+		"stack": "Express"
+	},
+	{
+		"text": "listening on port 3000",
+		"stack": "Express"
+	},
+	{
+		"text": "wrote an api route",
+		"stack": "Express"
+	},
+	{
+		"text": "action creator",
+		"stack": "Redux"
+	},
+	{
+		"text": "thunk",
+		"stack": "Redux"
+	},
+	{
+		"text": "thunk creator dispatches my action",
+		"stack": "Redux"
+	},
+	{
+		"text": "defined an action type",
+		"stack": "Redux"
+	},
+	{
+		"text": "created my action object with with an action creator",
+		"stack": "Redux"
+	},
+	{
+		"text": "store",
+		"stack": "Redux"
+	},
+	{
+		"text": "reducer",
+		"stack": "Redux"
+	}
+]

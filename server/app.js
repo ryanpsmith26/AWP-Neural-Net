@@ -4,7 +4,8 @@ const path = require('path');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 8080;
-const net = require('./net');
+const netNumSeq = require('./netNumberSequence');
+const netStackCat = require('./netStackCategory');
 
 // logging middleware
 app.use(morgan('dev'));
@@ -16,11 +17,25 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// PUT /api/net
-app.put('/api/net', (req, res, next) => {
+// PUT /api/net/nums
+app.put('/api/net/nums', (req, res, next) => {
 	try {
 		let runData = req.body;
-		let result = Math.round(net.run(runData));
+		let result = netNumSeq.run(runData);
+		// print result before rounding for illustration purposes
+		console.log('NUM SEQ RESULT--->', result);
+		result = Math.round(result);
+		res.json(result);
+	} catch (error) {
+		next(error);
+	}
+});
+
+// PUT /api/net/stack
+app.put('/api/net/stack', (req, res, next) => {
+	try {
+		let runData = req.body;
+		let result = netStackCat.run(runData.input);
 		res.json(result);
 	} catch (error) {
 		next(error);

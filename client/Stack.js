@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-class Counter extends React.Component {
+class Stack extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -14,18 +14,19 @@ class Counter extends React.Component {
 	async handleSubmit(e) {
 		e.preventDefault();
 		let userInput = e.target.input.value;
-		userInput = userInput.split(',');
-		const dataInput = userInput.map((stringNum) => Number(stringNum));
-		const { data: result } = await axios.put('/api/net/nums', dataInput);
+		const { data: result } = await axios.put('/api/net/stack', { input: userInput });
 		this.setState({ result });
 	}
 
 	render() {
 		return (
 			<React.Fragment>
-				<p>Enter a comma separated number sequence between 1-20 and let an AI figure out the next number!</p>
+				<p>
+					Enter something you've learned how to do at FSA and let an AI figure out which part of the stack
+					you're talking about!
+				</p>
 				<form onSubmit={this.handleSubmit}>
-					<label>Enter Sequence: </label>
+					<label>Enter Sentence: </label>
 					<input type="text" name="input" />
 					<button type="submit">Submit</button>
 				</form>
@@ -35,4 +36,4 @@ class Counter extends React.Component {
 	}
 }
 
-export default Counter;
+export default Stack;
