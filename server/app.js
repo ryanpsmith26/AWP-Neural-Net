@@ -16,13 +16,6 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// GET /api/net -- TESTING
-app.get('/api/net', (req, res, next) => {
-	let result = net.run([ 4, 5, 6, 7 ]);
-	console.log(result);
-	res.json(result);
-});
-
 // PUT /api/net
 app.put('/api/net', (req, res, next) => {
 	try {

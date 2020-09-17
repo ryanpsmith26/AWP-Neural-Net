@@ -14,17 +14,16 @@ class Counter extends React.Component {
 	async handleSubmit(e) {
 		e.preventDefault();
 		let userInput = e.target.input.value;
-		userInput = userInput.split('');
+		userInput = userInput.split(',');
 		const dataInput = userInput.map((stringNum) => Number(stringNum));
-
 		const { data: result } = await axios.put('/api/net', dataInput);
 		this.setState({ result });
 	}
 
 	render() {
-		console.log('counter state--->', this.state);
 		return (
 			<React.Fragment>
+				<p>Enter a comma separated number sequence between 1-20 and let an AI figure out the next number!</p>
 				<form onSubmit={this.handleSubmit}>
 					<label>Enter Sequence: </label>
 					<input type="text" name="input" />
