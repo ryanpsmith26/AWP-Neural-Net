@@ -16,7 +16,7 @@ class Counter extends React.Component {
 		this.state = {
 			result: ''
 		};
-
+		this.name = props.name;
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
