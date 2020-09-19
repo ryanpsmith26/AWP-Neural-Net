@@ -4,8 +4,8 @@ const path = require('path');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 8080;
-const netNumSeq = require('./netNumberSequence');
-const netStackCat = require('./netStackCategory');
+// const netNumSeq = require('./netNumberSequence');
+// const netStackCat = require('./netStackCategory');
 
 // logging middleware
 app.use(morgan('dev'));
@@ -20,12 +20,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // PUT /api/net/nums
 app.put('/api/net/nums', (req, res, next) => {
 	try {
-		let runData = req.body;
-		let result = netNumSeq.run(runData);
-		// print result before rounding for illustration purposes
-		console.log('NUM SEQ RESULT--->', result);
-		result = Math.round(result);
-		res.json(result);
+		// for testing only:
+		res.json('hello');
+		// let runData = req.body;
+		// let result = netNumSeq.run(runData);
+		// // print result before rounding for illustration purposes
+		// console.log('NUM SEQ RESULT--->', result);
+		// result = Math.round(result);
+		// res.json(result);
 	} catch (error) {
 		next(error);
 	}
@@ -54,6 +56,10 @@ app.use(function(err, req, res, next) {
 	res.status(err.status || 500).send(err.message || 'Internal server error.');
 });
 
-app.listen(PORT, () => {
-	console.log(`ready to serve neural nets on PORT: ${PORT}`);
-});
+// conditional prevents a very esoteric EADDRINUSE issue with mocha watch + supertest + npm test.
+if (!module.parent)
+	app.listen(PORT, () => {
+		console.log(`ready to serve neural nets on PORT: ${PORT}`);
+	});
+
+module.exports = app;
