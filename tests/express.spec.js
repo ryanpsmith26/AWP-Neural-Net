@@ -1,6 +1,6 @@
 // var assert = require('assert');
 var expect = require('chai').expect;
-var supertest = require('supertest-as-promised')(require('../server/app'));
+var supertest = require('supertest')(require('../server/app'));
 
 describe('Express Routes', function() {
 	describe('/api/net/nums URI', function() {
